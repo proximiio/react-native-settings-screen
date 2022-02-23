@@ -35,12 +35,39 @@ export const Row = ({
 }: Props) => {
   let ContentContainer = onPress ? TouchableOpacity : View
 
+  if (onPress) {
+    return (
+      <Container height={subtitle ? 56 : 46}>
+        <TopBorderContainer isFirst={isFirst}>
+          <TopBorder />
+        </TopBorderContainer>
+        <TouchableOpacity style={styles.contentContainer} onPress={onPress}>
+          <TitlesContainer>
+            <View />
+            <Title numberOfLines={1} style={titleStyles}>
+              {title}
+            </Title>
+            {subtitle && (
+              <Subtitle numberOfLines={1} style={subtitleStyles}>
+                {subtitle}
+              </Subtitle>
+            )}
+            <View />
+          </TitlesContainer>
+          {renderAccessory && renderAccessory()}
+          {showDisclosureIndicator ? <Chevron /> : <View style={{ width: 10 }} />}
+        </TouchableOpacity>
+        {isLast && <BottomBorder />}
+      </Container>
+    )
+  }
+
   return (
     <Container height={subtitle ? 56 : 46}>
       <TopBorderContainer isFirst={isFirst}>
         <TopBorder />
       </TopBorderContainer>
-      <ContentContainer style={styles.contentContainer} onPress={onPress}>
+      <View style={styles.contentContainer}>
         <TitlesContainer>
           <View />
           <Title numberOfLines={1} style={titleStyles}>
@@ -55,7 +82,7 @@ export const Row = ({
         </TitlesContainer>
         {renderAccessory && renderAccessory()}
         {showDisclosureIndicator ? <Chevron /> : <View style={{ width: 10 }} />}
-      </ContentContainer>
+      </View>
       {isLast && <BottomBorder />}
     </Container>
   )
