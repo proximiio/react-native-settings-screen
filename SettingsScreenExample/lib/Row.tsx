@@ -76,7 +76,7 @@ interface ContainerProps {
 }
 const Container = styled.View<ContainerProps>`
   background-color: transparent;
-  height: ${p => p.height};
+  height: ${(p: any) => p.height};
   align-items: stretch;
 `
 
@@ -86,7 +86,7 @@ interface TopBorderContainerProps {
 const TopBorderContainer = styled.View<TopBorderContainerProps>`
   align-self: stretch;
   height: ${StyleSheet.hairlineWidth};
-  padding-left: ${p => (p.isFirst ? 0 : 15)};
+  padding-left: ${(p: any) => (p.isFirst ? 0 : 15)};
   background-color: white;
 `
 
