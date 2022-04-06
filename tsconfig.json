@@ -8,9 +8,5 @@
     "lib": ["es2015", "esnext.asynciterable"],
     "outDir": "./dist/lib",
     "skipLibCheck": true
-  },
-  "include": [
-    "SettingsScreenExample/lib/**/*.ts",
-    "SettingsScreenExample/lib/**/*.tsx"
-  ]
+  }
 }
